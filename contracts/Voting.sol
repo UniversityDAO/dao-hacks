@@ -3,6 +3,14 @@ pragma solidity ^0.8.1;
 
 interface VotingInterface {
 
+event broadCastProposal(string _ipfsHashEvent, address _senderEvent );
+
+function submitProposal(string memory _ipfsHash ) public {
+    address sender;
+    sender = msg.sender;
+    emit broadCastProposal(_ipfsHash, sender);
+}
+
     // @dev releaseFunds transfers the tokens from DAO wallet to the wallet of the proposal owner
     // @param string proposalHash retrieves the amount requested from IPFS
     function releaseFunds(string memory proposalHash) external view;
