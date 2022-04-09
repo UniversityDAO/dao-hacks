@@ -19,11 +19,18 @@ async function main() {
 
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  const Token = await ethers.getContractFactory("Token");
+  const Token = await ethers.getContractFactory("UDAOToken");
   const token = await Token.deploy();
   await token.deployed();
 
   console.log("Token address:", token.address);
+
+  const MyNFT = await ethers.getContractFactory("UDAONFT")
+
+  // Start deployment, returning a promise that resolves to a contract object
+  const myNFT = await MyNFT.deploy()
+  await myNFT.deployed()
+  console.log("NFT address:", myNFT.address)
 
   // We also save the contract's artifacts and address in the frontend directory
   saveFrontendFiles(token);
@@ -42,10 +49,10 @@ function saveFrontendFiles(token) {
     JSON.stringify({ Token: token.address }, undefined, 2)
   );
 
-  const TokenArtifact = artifacts.readArtifactSync("Token");
+  const TokenArtifact = artifacts.readArtifactSync("UDAOToken");
 
   fs.writeFileSync(
-    contractsDir + "/Token.json",
+    contractsDir + "/UDAOToken.json",
     JSON.stringify(TokenArtifact, null, 2)
   );
 }

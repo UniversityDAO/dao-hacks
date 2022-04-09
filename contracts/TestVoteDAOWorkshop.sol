@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.1;
  
 // Interface for the FakeNFTMarketplace
 interface IFakeNFTMarketplace {
@@ -157,7 +157,7 @@ contract CryptoDevsDAO {
    }
  
    // Need a way for people to become a meber of the DAO
-   function onERC721Received(address, address from, uint256 tokenId, bytes memory) public override returns (bytes4) {
+   function onERC721Received(address, address from, uint256 tokenId, bytes memory) public returns (bytes4) {
        require(cryptoDevsNft.ownerOf(tokenId) == address(this), "MALICIOUS_REQUEST");
  
        Member storage member = members[from];
@@ -187,8 +187,4 @@ contract CryptoDevsDAO {
        }
        delete members[msg.sender];
    }
- 
-   // Receive and fallback function
-   receive() external payable {}
-   receive() external payable {}
 }
