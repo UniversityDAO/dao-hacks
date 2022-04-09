@@ -23,12 +23,14 @@ async function main() {
   const token = await Token.deploy();
   await token.deployed();
 
-    const result = await token.totalSupply;
-    const supply = result.outputs[0];
-
-  console.log("Tokens:", supply);
-
   console.log("Token address:", token.address);
+
+  const MyNFT = await ethers.getContractFactory("UDAONFT")
+
+  // Start deployment, returning a promise that resolves to a contract object
+  const myNFT = await MyNFT.deploy()
+  await myNFT.deployed()
+  console.log("NFT address:", myNFT.address)
 
   // We also save the contract's artifacts and address in the frontend directory
   saveFrontendFiles(token);
