@@ -3,10 +3,17 @@ pragma solidity ^0.8.0;
 
 contract VotingContract {
     
+    enum VoteType {
+        YES,
+        NO
+    }
+
     struct Proposal {
         
         uint yesVotes;
         uint noVotes;
+
+        uint amountOfFunds;
 
         // Is proposal still open for voting?
         bool open;
@@ -18,12 +25,15 @@ contract VotingContract {
     struct Member {
         // Array of NFTs that the member owns
         uint[] userNFTs;
+
+        // Wallet address of the member
+        address userAddress;
     }
 
     mapping (string => Proposal) public proposals;
     mapping (address => Member) public members;
 
-    uint public votingPower;
+    uint proposalCount;
 
     modifier isMember() {
         require(members[msg.sender].userNFTs.length > 0, "Invalid NFT Count");
@@ -31,20 +41,47 @@ contract VotingContract {
     }
 
     function createProposal(string memory _proposalHash) external isMember {
-            //Purpose: Initialize a new struct
-            //         Fill struct with new values
+            Proposal storage proposal = proposals[_proposalHash];
+
+            proposal.open = true;
+            proposal.yesVotes = 0;
+            proposal.noVotes = 0;
+            proposal.amountOfFunds = 
+
+            proposalCount++;
     }
 
-    function tallyVote(string memory _proposalHash, address voter) external isMember {
-            //Purpose: Look at proposal in question
-            //         Assign votingPower = members[msg.sender].userNFTs.length;
-            //         Two conditionals: Yes or no for voting
+    function tallyVote(string memory _proposalHash, VoteType _vote) external isMember {
+            Proposal storage proposal = proposals[_proposalHash];
+            require(proposal.voters[msg.sender] == false, "Member has already voted");
+            require(proposal.open == true, "Proposal is closed for voting");
+
+            proposal.voters[msg.sender] = true;
+
+            uint votingPower = members[msg.sender].userNFTs.length;
+
+            if (_vote == VoteType.YES)
+            {
+                proposal.yesVotes += votingPower;
+            }
+            else
+            {
+                proposal.noVotes += votingPower;
+            }
     }
 
     function releaseFunds (string memory _proposalHash) external isMember {
-            //Purpose: Take funds from funds wallet and transfer them to wallet of proposal owner
-            //         Set open = false;
-            //         Two conditionals: Is yes votes greater than no votes?
+            Proposal storage proposal = proposals[_proposalHash];
             
+            proposal.open = false;
+            if (proposal.yesVotes > proposal.noVotes)
+            {
+                //Do Something here
+            }
+            else
+            {
+                //Do something here
+            }
+
     }
 }
