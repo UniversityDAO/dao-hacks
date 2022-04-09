@@ -60,3 +60,6 @@ For a complete introduction to Hardhat, refer to [this guide](https://hardhat.or
   console, try resetting your Metamask account. This will reset the account's
   transaction history and also the nonce. Open Metamask, click on your account
   followed by `Settings > Advanced > Reset Account`.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
