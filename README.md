@@ -1,4 +1,4 @@
-# UDAO EthGlobal DAOHacks Hackathon Project
+# UDAO -  EthGlobal DAOHacks Hackathon Project
 
 A decentralized application that allows transfer of funds using NFTs for the purpose of grants for projects within the organization. This uses (Skillwallet and maybe Superfluid).
 
