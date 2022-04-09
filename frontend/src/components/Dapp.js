@@ -1,4 +1,5 @@
 import React from "react";
+import { InitSwAuth } from '@skill-wallet/auth';
 
 // We'll use ethers to interact with the Ethereum network and our contract
 import { ethers } from "ethers";
@@ -92,6 +93,7 @@ export class Dapp extends React.Component {
     // If everything is loaded, we render the application.
     return (
       <div className="container p-4">
+        <sw-auth partner-key="f4b83b4c8151fa92acc372a08a78c50ad5cab41f"></sw-auth>
         <div className="row">
           <div className="col-12">
             <h1>
@@ -368,3 +370,5 @@ export class Dapp extends React.Component {
     return false;
   }
 }
+
+InitSwAuth();
