@@ -7,7 +7,7 @@ interface VotingInterface {
     // @param string proposalHash retrieves the amount requested from IPFS
     function releaseFunds(string memory proposalHash) external view;
 
-    // @dev verifyOpenStatus tests whether or not the current proposal is still open for voting by traversing a state variable array of closed proposals
+    // @dev verifyOpenStatus tests whether or not the current proposal is still open for voting 
     // @param string proposalHash represents the hash of the proposal in question
     // @return bool specifies whether or not the contract is still open
     function verifyOpenStatus(string memory proposalHash) external view returns (bool);
@@ -17,7 +17,7 @@ interface VotingInterface {
     // @return bool returns true or false (has user already voted or not?)
     function verifyVoter(address voter) external view returns (bool);
 
-    // @dev closeProposal adds the proposal to a list of closed proposals
+    // @dev closeProposal marks the proposal as closed
     // @param string proposalHash represents the hash of the proposal in question
     function closeProposal(string memory proposalHash) external view;
 
