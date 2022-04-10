@@ -13,6 +13,7 @@ contract Vote {
         uint noVotes;
 
         uint amountOfFunds;
+        address ownerAddress;
 
         // Is proposal still open for voting?
         bool open;
@@ -39,14 +40,6 @@ contract Vote {
         _;
     }
 
-    event broadCastProposal(string _ipfsHashEvent, uint fundAmount, address _senderEvent);
-
-    function submitProposal(string memory _ipfsHash, uint fundAmount) public {
-        address sender;
-        sender = msg.sender;
-        emit broadCastProposal(_ipfsHash, fundAmount, sender);
-    }
-
     function createProposal(string memory _proposalHash, uint fundAmount) external isMember {
         Proposal storage proposal = proposals[_proposalHash];
 
@@ -54,6 +47,7 @@ contract Vote {
         proposal.yesVotes = 0;
         proposal.noVotes = 0;
         proposal.amountOfFunds = fundAmount;
+        proposal.ownerAddress = msg.sender;
 
         proposalCount++;
     }
