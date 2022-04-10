@@ -39,14 +39,6 @@ contract Vote {
         _;
     }
 
-    event broadCastProposal(string _ipfsHashEvent, uint fundAmount, address _senderEvent);
-
-    function submitProposal(string memory _ipfsHash, uint fundAmount) public {
-        address sender;
-        sender = msg.sender;
-        emit broadCastProposal(_ipfsHash, fundAmount, sender);
-    }
-
     function createProposal(string memory _proposalHash, uint fundAmount) external isMember {
         Proposal storage proposal = proposals[_proposalHash];
 
