@@ -1,6 +1,22 @@
 # UDAO -  EthGlobal DAOHacks Hackathon Project
 
-A decentralized application that allows transfer of funds using NFTs for the purpose of grants for projects within the organization for University projects. This uses (Skillwallet and maybe Superfluid).
+University Decentralized Autonomous Organization is designed to allow students at a university to submit proposals for projects and request funding. Members of the DAO can fund the projects that  best advance UDAO's goal of spreading web3 awareness and creating projects that help the community.
+
+## UDAO's Vision
+
+Students at any university can clone and redeploy UDAO as the foundation of their local web3 club. By having local duplicates of UDAO students can get experience interacting with web3 infrastructure without giving up the in person contact that local clubs give. UDAO has a local, non hierarchical governance structure with NFT based voting. Local interaction on a university campus allows students to come together and pursue their interests and reach students who know nothing about web3. The majority of the population knows crypto through Dogecoin and monkey NFTS, but there is so much more to web3 than memecoins. By Keeping membership local members can easily reach students who would never know what web3 is if one of their peers did not tell them. Clubs should act as decentralized as possible without losing the small club feel of the organization. All decisions including the allocation of funds are carried out on the blockchain through voting.
+
+## Governance
+
+The Governance structure of UDAO is….
+
+## About US
+
+We are...
+
+## Submitting Proposals Through IPFS
+
+## Voting With Skillwallet
 
 ## Compiling and Running
 

@@ -6,6 +6,6 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract UDAOToken is ERC20 {
     constructor() ERC20("UDAOToken", "UDAO") {
-        _mint(msg.sender, 10);
+        _mint(msg.sender, 21000000);
     }
 }
