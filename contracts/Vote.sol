@@ -11,21 +11,17 @@ contract Vote {
     struct Proposal {
         uint yesVotes;
         uint noVotes;
-
         uint amountOfFunds;
         address ownerAddress;
 
         // Is proposal still open for voting?
         bool open;
-
-        // Mapping to check if a voter has already voted
         mapping(address => bool) voters;
     }
 
     struct Member {
         // Array of NFTs that the member owns
         uint[] userNFTs;
-
         // Wallet address of the member
         address userAddress;
     }

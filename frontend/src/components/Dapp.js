@@ -51,14 +51,15 @@ export class Dapp extends React.Component {
       txBeingSent: undefined,
       transactionError: undefined,
       networkError: undefined,
+      votingContract: undefined
     };
 
     this.state = this.initialState;
   }
 
   render() {
-    //return <Dashboard />;
-    return <Proposal />;
+    return <Dashboard votingContract={this.state.votingContract} />;
+    //return <Proposal />;
   }
 
   componentWillUnmount() {
