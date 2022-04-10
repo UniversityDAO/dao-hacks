@@ -13,6 +13,7 @@ contract Vote {
         uint noVotes;
 
         uint amountOfFunds;
+        address ownerAddress;
 
         // Is proposal still open for voting?
         bool open;
@@ -46,6 +47,7 @@ contract Vote {
         proposal.yesVotes = 0;
         proposal.noVotes = 0;
         proposal.amountOfFunds = fundAmount;
+        proposal.ownerAddress = msg.sender;
 
         proposalCount++;
     }
