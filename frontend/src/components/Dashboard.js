@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-import TokenArtifact from "../contracts/UDAOToken.json";
+import { InitSwAuth } from '@skill-wallet/auth';
 
 export function Dashboard(props) {
     const [funds, setFunds] = useState("");
@@ -23,6 +22,7 @@ export function Dashboard(props) {
     }
 
     return (
+      
         <div className="container">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -32,6 +32,7 @@ export function Dashboard(props) {
                     Panel content
                 </div>
             </div>
+            <sw-auth partner-key="a878cb88bca89294848aab9868cc031"></sw-auth>
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -63,3 +64,5 @@ export function Dashboard(props) {
         </div>
     );
 }
+
+InitSwAuth();
