@@ -9,7 +9,6 @@ contract VotingContract {
     }
 
     struct Proposal {
-        
         uint yesVotes;
         uint noVotes;
 
@@ -40,13 +39,19 @@ contract VotingContract {
         _;
     }
 
-    function createProposal(string memory _proposalHash) external isMember {
+    function submitProposal(string memory _ipfsHash, uint fundAmount) public {
+        address sender;
+        sender = msg.sender;
+        emit broadCastProposal(_ipfsHash, fundAmount, sender);
+    }
+
+    function createProposal(string memory _proposalHash, uint fundAmount) external isMember {
             Proposal storage proposal = proposals[_proposalHash];
 
             proposal.open = true;
             proposal.yesVotes = 0;
             proposal.noVotes = 0;
-            proposal.amountOfFunds = 
+            proposal.amountOfFunds = fundAmount;
 
             proposalCount++;
     }
@@ -76,7 +81,7 @@ contract VotingContract {
             proposal.open = false;
             if (proposal.yesVotes > proposal.noVotes)
             {
-                //Do Something here
+                //Do Something here 
             }
             else
             {
